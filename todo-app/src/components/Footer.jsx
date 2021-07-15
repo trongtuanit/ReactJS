@@ -34,7 +34,7 @@ export default function Footer({
   return (
     <div className="footer">
       {amount ? (
-        <span>
+        <span className="amount">
           {amount} {amount > 1 ? "items" : "item"} left
         </span>
       ) : null}
