@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import InputTodo from "./InputTodo";
 import TodoItem from "./TodoItem";
 import Footer from "./Footer";
-import { Button } from "antd";
+import { Button, notification, Space } from "antd";
 import { getData, setData } from "../Data.js";
 import { v1 as uuidv1 } from "uuid";
 
@@ -71,7 +71,15 @@ export default function TableTodo() {
       return newTodo;
     });
     setTodoList(newTodoList);
-    alert("Congratulate, your works has been completed!");
+    openNotificationWithIcon("success");
+  };
+
+  const openNotificationWithIcon = (type) => {
+    notification[type]({
+      duration: 1.5,
+      message: "Thành công",
+      description: "Chúc mừng bạn đã hoàn thành tất cả công việc!",
+    });
   };
 
   return (
