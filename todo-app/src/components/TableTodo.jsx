@@ -71,7 +71,7 @@ export default function TableTodo() {
       return newTodo;
     });
     setTodoList(newTodoList);
-    alert("Congratuate, todo list has been completed!");
+    alert("Congratulate, your works has been completed!");
   };
 
   return (

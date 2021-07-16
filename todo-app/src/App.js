@@ -7,7 +7,7 @@ function App() {
   return (
     <React.Fragment>
       <div className="container">
-        <h1 className="title">todos</h1>
+        <h1 className="title">Todo List</h1>
         <TableTodo />
       </div>
     </React.Fragment>

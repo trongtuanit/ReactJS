@@ -5,33 +5,36 @@ export default function InputTodo({ addTodo }) {
   const [text, setText] = useState("");
 
   const getText = (e) => {
-    if (!e.target.value) {
-      return;
-    } else {
-      setText(e.target.value);
-    }
-  };
-
-  const resetText = (e) => {
-    e.target.value = "";
+    setText(e.target.value);
+    console.log(text);
   };
 
   const handleEnterPress = (e) => {
-    addTodo(text);
-    e.target.value = "";
+    if (e.target.value === 0) return;
+    addTodo(e.target.value);
     setText("");
   };
+
+  // const resetText = (e) => {
+  //   e.target.value = "";
+  //   setText("");
+  // };
 
   return (
     <React.Fragment>
       <Input
+        // onPaste={(e) => {
+        //   e.preventDefault();
+        // }}
+        // onCopy={(e) => {
+        //   e.preventDefault();
+        // }}
+        value={text}
         className="input"
         onChange={getText}
         size="large"
         placeholder="What needs to be done ?"
         onPressEnter={handleEnterPress}
-        defaultValue={""}
-        onBlur={resetText}
       />
     </React.Fragment>
   );
