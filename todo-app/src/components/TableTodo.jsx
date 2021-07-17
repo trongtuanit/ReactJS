@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import InputTodo from "./InputTodo";
 import TodoItem from "./TodoItem";
 import Footer from "./Footer";
-import { Button, notification, Space } from "antd";
+import { Button, notification } from "antd";
 import { getData, setData } from "../Data.js";
 import { v1 as uuidv1 } from "uuid";
 
