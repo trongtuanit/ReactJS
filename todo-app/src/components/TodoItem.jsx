@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Checkbox, Button } from "antd";
 
 export default function TodoItem({
@@ -7,7 +7,20 @@ export default function TodoItem({
   isComplete,
   deleteItem,
   checkItem,
+  editItem,
 }) {
+  const [text, setText] = useState(content);
+  const [isContentEditale, setIsContentEditale] = useState(false);
+
+  const handleEdit = () => {
+    setIsContentEditale(true);
+  };
+
+  const completeEdit = () => {
+    editItem(id, text);
+    setIsContentEditale(false);
+  };
+
   return (
     <div className="item">
       <Checkbox
@@ -16,7 +29,20 @@ export default function TodoItem({
         checked={isComplete}
       />
 
-      <p className={isComplete && "completed"}>{content}</p>
+      <p
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            completeEdit();
+          }
+        }}
+        onChange={(e) => setText(e.target.value)}
+        contentEditable={isContentEditale}
+        onDoubleClick={handleEdit}
+        onBlur={completeEdit}
+        className={isComplete && "completed"}
+      >
+        {text}
+      </p>
 
       <Button
         className="dangerBtn"

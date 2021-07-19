@@ -6,7 +6,6 @@ export default function InputTodo({ addTodo }) {
 
   const getText = (e) => {
     setText(e.target.value);
-    console.log(text);
   };
 
   const handleEnterPress = (e) => {
@@ -15,20 +14,9 @@ export default function InputTodo({ addTodo }) {
     setText("");
   };
 
-  // const resetText = (e) => {
-  //   e.target.value = "";
-  //   setText("");
-  // };
-
   return (
     <React.Fragment>
       <Input
-        // onPaste={(e) => {
-        //   e.preventDefault();
-        // }}
-        // onCopy={(e) => {
-        //   e.preventDefault();
-        // }}
         value={text}
         className="input"
         onChange={getText}

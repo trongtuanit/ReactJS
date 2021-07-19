@@ -110,6 +110,20 @@ canvas {
   left: 0;
 }
 
+.notice {
+  min-height: 6vh;
+}
+.modal {
+  display: flex;
+  padding: 0.25rem 1rem;
+  border-radius: 10px;
+  text-transform: capitalize;
+}
+
+.modal p {
+  color: rgb(31, 203, 255);
+  font-size: 18px;
+}
 /* .ant-switch {
   background-color: rgb(0, 0, 0) !important;
 } */
