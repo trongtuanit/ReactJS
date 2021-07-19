@@ -16,9 +16,25 @@ export default function TodoItem({
     setIsContentEditale(true);
   };
 
-  const completeEdit = () => {
-    editItem(id, text);
-    setIsContentEditale(false);
+  const completeEdit = (e) => {
+    console.log(e);
+    if (!e.target.value) {
+      e.target.textContent = text;
+      e.target.value = text;
+      setIsContentEditale(false);
+    } else {
+      editItem(id, text);
+      setIsContentEditale(false);
+    }
+  };
+
+  const handleChangeValue = (e) => {
+    if (!e.target.value) {
+      e.target.value = text;
+      return;
+    } else {
+      setText(e.target.value);
+    }
   };
 
   return (
@@ -35,7 +51,7 @@ export default function TodoItem({
             completeEdit();
           }
         }}
-        onChange={(e) => setText(e.target.value)}
+        onChange={handleChangeValue}
         contentEditable={isContentEditale}
         onDoubleClick={handleEdit}
         onBlur={completeEdit}

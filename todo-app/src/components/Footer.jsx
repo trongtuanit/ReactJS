@@ -16,17 +16,11 @@ export default function Footer({
 
   useEffect(() => {
     if (value === "All") {
-      showAll(true);
-      showActive(false);
-      showCompleted(false);
+      showAll();
     } else if (value === "Active") {
-      showAll(false);
-      showActive(true);
-      showCompleted(false);
+      showActive();
     } else if (value === "Completed") {
-      showAll(false);
-      showActive(false);
-      showCompleted(true);
+      showCompleted();
     }
     // eslint-disable-next-line
   }, [value]);

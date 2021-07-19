@@ -68,6 +68,9 @@ export default function TableTodo() {
   };
 
   const editItem = (id, value) => {
+    if (!value) {
+      return;
+    }
     let newTodoList = state.todoList.map((todo) => {
       if (todo.id === id) {
         const newTodo = { ...todo };
@@ -95,14 +98,14 @@ export default function TableTodo() {
   };
 
   const showCompleted = () => {
-    dispatch({ type: "GET_ALL" });
+    dispatch({ type: "GET_COMPLETED" });
   };
 
   const showActive = () => {
     dispatch({ type: "GET_ACTIVE" });
   };
   const showAll = () => {
-    dispatch({ type: "GET_COMPLETED" });
+    dispatch({ type: "GET_ALL" });
   };
 
   const setAllCompleted = () => {
