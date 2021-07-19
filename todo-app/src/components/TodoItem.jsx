@@ -17,7 +17,6 @@ export default function TodoItem({
   };
 
   const completeEdit = (e) => {
-    console.log(e);
     if (!e.target.value) {
       e.target.textContent = text;
       e.target.value = text;
